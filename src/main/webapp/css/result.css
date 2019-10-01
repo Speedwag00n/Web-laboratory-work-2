@@ -1,0 +1,38 @@
+.table{
+	display: table;
+	border-collapse: collapse;
+	font-family: monospace;
+	color: white;
+	font-size: 18px;
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.table-tr{
+	display: table-row;
+}
+
+.table-td{
+	display: table-cell;
+	text-align: left;
+	border: none;
+	border: 2px solid black;
+	vertical-align: middle;
+	padding: 5px 10px 5px 10px;
+}
+
+.result-value{
+    min-width: 150px;
+    text-align: center;
+}
+
+.return-link{
+    display: block;
+    text-align: center;
+	font-size: 18px;
+    font-family: monospace;
+	color: white;
+	margin: 20px 0px 20px 0px;
+}

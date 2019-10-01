@@ -1,0 +1,92 @@
+#workspace-container{
+    font-size: 0px;
+	vertical-align: top;
+}
+
+.workspace-item-container{
+	display: inline-block;
+	width: calc(50% - 40px);
+	margin: 0px 20px 10px 20px;
+	vertical-align: top;
+}
+
+.parameter-container, .button-container{
+	margin-bottom: 10px;
+	padding: 0px 8px 8px 8px;
+}
+
+.parameter-container{
+	text-align: center;
+}
+
+.parameter-form-container{
+	padding: 10px 5px 0px 5px;
+	border: 2px solid black;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.submit-button{
+	font-family: monospace;
+	color: white;
+	font-size: 18px;
+	background-color: #4C4C4C;
+	border: 2px solid white;
+}
+
+.submit-button:hover{
+	background-color: #0F0F0F;
+	color: #A0A0A0;
+	border: 2px solid #A0A0A0;
+	transition: 0.3s;
+}
+
+.parameter-label{
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 auto 1% auto;
+}
+
+.checkbox-button-label{
+	font-size: 18px;
+	width: 100px;
+}
+
+label{
+	font-family: monospace;
+	color: white;
+}
+
+#task-chart{
+	width: 330px;
+	height: 330px;
+}
+
+input[type="text"]{
+	width: 60%;
+}
+
+input[type="text"]:focus{
+	background-color: #A0A0A0;
+	transition: 0.2s;
+}
+
+input[type="checkbox"]:not(:last-child){
+	margin: 0% 3.5% 0% 1%;
+}
+
+input[type="checkbox"]:last-child{
+	margin: 0% 0% 0% 1%;
+}
+
+.warning-container{
+	display: block;
+	font-size: 16px;
+	color: red;
+	padding-top: 10px;
+}
