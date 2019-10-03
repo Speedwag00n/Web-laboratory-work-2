@@ -17,7 +17,7 @@
         let Y = toComputingY(originalY, R);
 
         $.ajax({
-            url: "check",
+            url: "",
             type: "post",
             dataType: "html",
             data:

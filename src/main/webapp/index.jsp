@@ -32,7 +32,7 @@
 		</div>
 		<div id="computation-form-container" class="workspace-item-container">
 			<h1>Параметры</h1>
-			<form id="computation-form" method="post" action="welcome" onsubmit="return validate(this);">
+			<form id="computation-form" method="post" action="" onsubmit="return validate(this);">
 				<div class="parameter-form-container">
 					<div class="parameter-container">
 						<label for="X-param" class="parameter-label">X:</label>

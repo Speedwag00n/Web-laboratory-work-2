@@ -37,6 +37,7 @@ public class AreaCheckServlet extends HttpServlet {
         writer.println("<html lang=\"ru\">");
 
         writer.println("<head>");
+        writer.println("<link rel=\"shortcut icon\" href=\"img/favicon.ico\">");
         writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">");
         writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/result.css\">");
         writer.println("</head>");
@@ -51,7 +52,7 @@ public class AreaCheckServlet extends HttpServlet {
 
         writer.println("<div id=\"result-container\" class=\"horisontal-centering-container\">");
         writer.println("<h1>Результаты последнего запроса</h1>");
-        writer.println("<a href=\"welcome\" class=\"return-link\">Вернуться на главную</a>");
+        writer.println("<a href=\"/\" class=\"return-link\">Вернуться на главную</a>");
         writer.println("<div id=\"result-table\" class=\"table\">");
         for (Point point : points) {
             writer.println("<div class=\"table-tr result-table-tr\">");
@@ -84,7 +85,7 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private List<Point> buildPoints(HttpServletRequest request) {
-        List<Point> points = new ArrayList<>();
+        List<Point> points = new ArrayList<Point>();
         String[] arrayY = request.getParameterValues("Y");
         if (request.getParameter("X").length() > 10 || request.getParameter("R").length() > 10) {
             throw new IllegalArgumentException();
@@ -124,7 +125,7 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private void updateHistory(HttpServletRequest request, List<Point> points, Area area) {
-        List<HistoryRecord> records = new ArrayList<>();
+        List<HistoryRecord> records = new ArrayList<HistoryRecord>();
         for (Point point : points) {
             records.add(new HistoryRecord(point, area.hit(point)));
         }
