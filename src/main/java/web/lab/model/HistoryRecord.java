@@ -1,5 +1,7 @@
 package web.lab.model;
 
+import web.lab.chart.Point;
+
 public class HistoryRecord {
 
     private Point point;

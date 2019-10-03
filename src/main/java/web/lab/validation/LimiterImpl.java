@@ -1,17 +1,15 @@
 package web.lab.validation;
 
-import web.lab.model.Point;
-
 public class LimiterImpl implements Limiter {
 
-    public boolean isInLimits(Point point) {
-        if (point.getX() <= -3 || point.getX() >= 3) {
+    public boolean isInLimits(double x, double y, double r) {
+        if (x <= -3 || x >= 3) {
             return false;
         }
-        if (point.getY() < -4 || point.getY() > 4) {
+        if (y < -4 || y > 4) {
             return false;
         }
-        if (point.getR() <= 2 || point.getR() >= 5) {
+        if (r <= 2 || r >= 5) {
             return false;
         }
         return true;

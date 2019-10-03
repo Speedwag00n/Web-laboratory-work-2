@@ -1,15 +1,13 @@
-package web.lab.model;
+package web.lab.chart;
 
 public class Point {
 
     private double x;
     private double y;
-    private double r;
 
-    public Point(double x, double y, double r) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
-        this.r = r;
     }
 
     public double getX() {
@@ -18,10 +16,6 @@ public class Point {
 
     public double getY() {
         return y;
-    }
-
-    public double getR() {
-        return r;
     }
 
 }

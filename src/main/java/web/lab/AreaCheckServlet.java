@@ -1,9 +1,9 @@
 package web.lab;
 
-import web.lab.model.Area;
-import web.lab.model.DefaultArea;
+import web.lab.chart.Area;
+import web.lab.chart.DefaultArea;
 import web.lab.model.HistoryRecord;
-import web.lab.model.Point;
+import web.lab.chart.Point;
 import web.lab.validation.Limiter;
 import web.lab.validation.LimiterImpl;
 
@@ -22,13 +22,14 @@ public class AreaCheckServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         List<Point> points;
+        Area area;
         try {
             points = buildPoints(request);
-        } catch (IllegalArgumentException e) {
+            area = buildArea(request);
+        } catch (Exception e) {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             return;
         }
-        Area area = new DefaultArea();
         updateHistory(request, points, area);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
@@ -68,7 +69,7 @@ public class AreaCheckServlet extends HttpServlet {
 
             writer.println("<div class=\"table-td\">R: </div>");
             writer.println("<div class=\"table-td result-value result-r\">");
-            writer.println(point.getR());
+            writer.println(area.getR());
             writer.println("</div>");
 
             writer.println("<div class=\"table-td\">Попадание: </div>");
@@ -95,7 +96,7 @@ public class AreaCheckServlet extends HttpServlet {
             x = Double.parseDouble(request.getParameter("X"));
             r = Double.parseDouble(request.getParameter("R"));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(e);
         }
         boolean isForm;
         try {
@@ -113,8 +114,8 @@ public class AreaCheckServlet extends HttpServlet {
                 if (arrayY[i].length() > 10) {
                     continue;
                 }
-                Point point = new Point(x, Double.parseDouble(arrayY[i]), r);
-                if (!isForm || limiter.isInLimits(point)) {
+                Point point = new Point(x, Double.parseDouble(arrayY[i]));
+                if (!isForm || limiter.isInLimits(point.getX(), point.getY(), r)) {
                     points.add(point);
                 }
             } catch (NumberFormatException e) {
@@ -122,6 +123,14 @@ public class AreaCheckServlet extends HttpServlet {
             }
         }
         return points;
+    }
+
+    private Area buildArea(HttpServletRequest request) {
+        try {
+           return new DefaultArea(Double.parseDouble(request.getParameter("R")));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     private void updateHistory(HttpServletRequest request, List<Point> points, Area area) {
