@@ -106,7 +106,7 @@
 
                         out.println("<div class=\"table-td\">R: </div>");
                         out.println("<div class=\"table-td result-value result-r\">");
-                        out.println(history.get(i).getPoint().getR());
+                        out.println(history.get(i).getR());
                         out.println("</div>");
 
                         out.println("<div class=\"table-td\">Попадание: </div>");

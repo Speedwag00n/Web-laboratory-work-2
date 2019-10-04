@@ -136,7 +136,7 @@ public class AreaCheckServlet extends HttpServlet {
     private void updateHistory(HttpServletRequest request, List<Point> points, Area area) {
         List<HistoryRecord> records = new ArrayList<HistoryRecord>();
         for (Point point : points) {
-            records.add(new HistoryRecord(point, area.hit(point)));
+            records.add(new HistoryRecord(point, area.getR(), area.hit(point)));
         }
         List<HistoryRecord> history = (List<HistoryRecord>)request.getSession().getAttribute("history");
         if (history == null) {
